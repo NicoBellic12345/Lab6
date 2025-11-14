@@ -1,0 +1,18 @@
+<div class="item-card" [routerLink]="['/items', item.id]">
+  <div class="card-image">
+    <img [src]="item.image" [alt]="item.title" loading="lazy">
+  </div>
+  
+  <div class="card-content">
+    <h3 class="card-title">{{ item.title }}</h3>
+    <p class="card-category">{{ item.category }}</p>
+    <p class="card-description">{{ item.description | slice:0:100 }}...</p>
+    
+    <div class="card-footer">
+      <span class="card-price">${{ item.price }}</span>
+      <div class="card-rating">
+        ⭐ {{ item.rating.rate }} ({{ item.rating.count }})
+      </div>
+    </div>
+  </div>
+</div>

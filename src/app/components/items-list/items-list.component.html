@@ -1,0 +1,46 @@
+<div class="items-list-container">
+  <div class="search-section">
+    <h1>Our Products</h1>
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="onSearch()"
+        placeholder="Search products..."
+        class="search-input">
+      <button (click)="clearSearch()" class="clear-btn" *ngIf="searchQuery">
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading products...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error && !loading" class="error-state">
+    <p>❌ {{ error }}</p>
+    <button (click)="loadItems()" class="btn btn-primary">Retry</button>
+  </div>
+
+  <!-- No Results -->
+  <div *ngIf="!loading && !error && filteredItems.length === 0" class="no-results">
+    <p>No products found matching your search.</p>
+    <button (click)="clearSearch()" class="btn btn-primary">Show All Products</button>
+  </div>
+
+  <!-- Results -->
+  <div *ngIf="!loading && !error && filteredItems.length > 0" class="results-info">
+    <p>Found {{ filteredItems.length }} product(s)</p>
+  </div>
+
+  <div *ngIf="!loading && !error && filteredItems.length > 0" class="items-grid">
+    <app-item-card
+      *ngFor="let item of filteredItems"
+      [item]="item">
+    </app-item-card>
+  </div>
+</div>

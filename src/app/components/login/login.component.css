@@ -1,0 +1,53 @@
+.login-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.login-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.login-card h1 {
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.login-message {
+  margin-bottom: 2rem;
+}
+
+.login-message p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.login-description {
+  font-size: 1rem !important;
+  line-height: 1.5;
+  color: #888 !important;
+}
+
+.login-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.login-actions .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
